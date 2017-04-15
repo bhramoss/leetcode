@@ -10,6 +10,8 @@ package recursion;
  * If we do PUT the nth item, then its possible that some space(weight) is still available for putting
  * n-2, n-3, n-i item, so we need to consider putting them also. 
  * 
+ * References:- http://www.geeksforgeeks.org/dynamic-programming-set-10-0-1-knapsack-problem/
+ * 				https://en.wikipedia.org/wiki/Knapsack_problem
  * 
  */
 
