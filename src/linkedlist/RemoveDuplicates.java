@@ -5,17 +5,17 @@ import java.util.Map;
 
 public class RemoveDuplicates {
 
-	public Node deleteDuplicates(Node head) {
+	public ListNode deleteDuplicates(ListNode head) {
 
 		if (head == null)
 			return head;
 
-		Map<Integer, Node> map = new HashMap<Integer, Node>();
-		Node temp = head;
+		Map<Integer, ListNode> map = new HashMap<Integer, ListNode>();
+		ListNode temp = head;
 		while (temp != null) {
 
-			if (map.get(temp.value) == null) {
-				map.put(temp.value, temp);
+			if (map.get(temp.val) == null) {
+				map.put(temp.val, temp);
 
 			} else {
 				deleteNode(head, temp);
@@ -26,7 +26,7 @@ public class RemoveDuplicates {
 
 	}
 
-	private void deleteNode(Node node, Node delete) {
+	private void deleteNode(ListNode node, ListNode delete) {
 
 		while (node.next != delete) {
 
@@ -40,10 +40,10 @@ public class RemoveDuplicates {
 
 		RemoveDuplicates obj = new RemoveDuplicates();
 		LinkedList list = new LinkedList();
-		Node head = new Node(1);
-		Node first = list.createNode(2, head);
-		Node second = list.createNode(1, first);
-		Node third = list.createNode(20, second);
+		ListNode head = new ListNode(1);
+		ListNode first = list.createNode(2, head);
+		ListNode second = list.createNode(1, first);
+		ListNode third = list.createNode(20, second);
 		list.traverseList(head);
 		obj.deleteDuplicates(head);
 		list.traverseList(head);

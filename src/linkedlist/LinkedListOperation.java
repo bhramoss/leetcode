@@ -5,10 +5,10 @@ public class LinkedListOperation {
 	public static void main(String[] args) {
 
 		LinkedList list = new LinkedList();
-		Node head = new Node(1);
-		Node first = list.createNode(2, head);
-		Node second = list.createNode(5, first);
-		Node third = list.createNode(20, second);
+		ListNode head = new ListNode(1);
+		ListNode first = list.createNode(2, head);
+		ListNode second = list.createNode(5, first);
+		ListNode third = list.createNode(20, second);
 		list.traverseList(head);
 
 		// Anomaly

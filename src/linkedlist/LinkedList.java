@@ -2,43 +2,43 @@ package linkedlist;
 
 public class LinkedList {
 
-	public Node createNode(int data, Node current) {
+	public ListNode createNode(int data, ListNode current) {
 
-		Node node = new Node(data);
+		ListNode node = new ListNode(data);
 		current.next = node;
 		return node;
 	}
 
-	public void traverseList(Node node) {
+	public void traverseList(ListNode node) {
 
 		while (node != null) {
-			System.out.print(node.value + " ");
+			System.out.print(node.val + " ");
 			node = node.next;
 		}
 		System.out.println();
 	}
 
-	public Node insertFront(Node head, int data) {
+	public ListNode insertFront(ListNode head, int data) {
 
-		Node node = new Node(data);
+		ListNode node = new ListNode(data);
 
 		node.next = head;
 		head = node;
 		return head;
 	}
 
-	public void insertMiddle(Node prev, int data) {
+	public void insertMiddle(ListNode prev, int data) {
 
-		System.out.println("Inserting after: " + prev.value);
-		Node temp = new Node(data);
+		System.out.println("Inserting after: " + prev.val);
+		ListNode temp = new ListNode(data);
 		temp.next = prev.next;
 		prev.next = temp;
 	}
 
-	public void insertEnd(Node head, int data) {
+	public void insertEnd(ListNode head, int data) {
 
-		Node end = new Node(data);
-		Node temp = head;
+		ListNode end = new ListNode(data);
+		ListNode temp = head;
 		while (temp.next != null) {
 
 			temp = temp.next;

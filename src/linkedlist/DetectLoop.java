@@ -1,10 +1,10 @@
 package linkedlist;
 
 public class DetectLoop {
-	public Node detectCycle(Node head) {
+	public ListNode detectCycle(ListNode head) {
 
-		Node slow = head;
-		Node fast = head;
+		ListNode slow = head;
+		ListNode fast = head;
 		boolean isCycle = false;
 
 		while (slow != null && fast != null && fast.next != null) {
