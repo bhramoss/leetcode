@@ -33,13 +33,5 @@ public class BitWiseMagic {
 		
 		obj.myPow(2, 9);
 		
-//		int num = 8;
-//
-//		while (num > 0) {
-//
-//			System.out.print(num & 1);
-//			num >>= 1;
-//			System.out.println(num);
-//		}
 	}
 }

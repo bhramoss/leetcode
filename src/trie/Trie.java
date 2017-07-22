@@ -87,40 +87,4 @@ public class Trie {
 		System.out.println(obj.substringMatch("z"));		
 	}
 
-//	private class TrieNode {
-//
-//		Map<Character, TrieNode> map;
-//		boolean isEnd;
-//		String word;
-//
-//		public String getWord() {
-//			return word;
-//		}
-//
-//		public void setWord(String word) {
-//			this.word = word;
-//		}
-//
-//		public TrieNode() {
-//			this.map = new HashMap<>();
-//			this.isEnd = false;
-//		}
-//
-//		public Map<Character, TrieNode> getMap() {
-//			return map;
-//		}
-//
-//		public void setMap(Map<Character, TrieNode> map) {
-//			this.map = map;
-//		}
-//
-//		public boolean isEnd() {
-//			return isEnd;
-//		}
-//
-//		public void setEnd(boolean isEnd) {
-//			this.isEnd = isEnd;
-//		}
-//
-//	}
 }

@@ -3,6 +3,7 @@ package graph;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.Stack;
 
@@ -38,6 +39,35 @@ public class TopologicalSort {
 		stack.push(vertex);
 	}
 	
+	//Topological sort using an alternate representation of graph 
+	public Stack<String> toposort(Graph_R2 g){
+		
+		Set<String> visited = new HashSet<String>();
+		Stack<String> stack = new Stack<String>();
+		Map<String, List<String>> map = g.getMap();
+		for(Map.Entry<String, List<String>> entry : map.entrySet()){
+			if(!visited.contains(entry.getKey())){
+				topoUtil(stack, visited, map, entry.getKey());				
+			}
+		}
+		return stack;
+	}
+	
+	private void topoUtil(Stack<String> stack, Set<String> visited, Map<String, List<String>> map, String start){
+		
+		visited.add(start);
+		if(map.get(start) != null){
+			Iterator<String> it = map.get(start).iterator();
+			while(it.hasNext()){
+				String temp = it.next();
+				if(!visited.contains(temp)){
+					topoUtil(stack, visited, map, temp);
+				}
+			}			
+		}
+		stack.push(start);
+	}
+	
 	public static void main(String[] args){
 
 		Graph_R1 g = new Graph_R1(6);
@@ -49,8 +79,26 @@ public class TopologicalSort {
         g.addEdge(3, 1);
         TopologicalSort topo = new TopologicalSort();
         Stack<Integer> result = topo.toposort(g, 6);
+        System.out.println("Topological sort for graph 1: ");
         while(!result.isEmpty()){
-        	System.out.println(result.pop());
+        	System.out.print(result.pop() + " ");
         }
+        System.out.println();
+        System.out.println("Topological sort for graph 2: ");        
+        Graph_R2 g2 = new Graph_R2();
+        g2.addEdge("A", "C");
+        g2.addEdge("C", "B");
+        g2.addEdge("B", "A");        
+        g2.addEdge("B", "D");
+        g2.addEdge("C", "E");
+        g2.addEdge("E", "H");
+        g2.addEdge("E", "F");
+        g2.addEdge("F", "G");
+        g2.addEdge("D", "F");
+        Stack<String> result2 = topo.toposort(g2);
+        while(!result2.isEmpty()){
+        	System.out.print(result2.pop() + " ");
+        }
+        
 	}
 }
