@@ -39,7 +39,7 @@ public class TopologicalSort {
 		stack.push(vertex);
 	}
 	
-	//Topological sort using an alternate representation of graph 
+	//Topological sort using an alternate representation of graph: Map for strings
 	public Stack<String> toposort(Graph_R2 g){
 		
 		Set<String> visited = new HashSet<String>();
@@ -68,6 +68,36 @@ public class TopologicalSort {
 		stack.push(start);
 	}
 	
+	//Topological sort using an alternate representation of graph: Map for strings
+
+	public Stack<Character> toposort(Graph_R3 g){
+		
+		Set<Character> visited = new HashSet<>();
+		Stack<Character> stack = new Stack<>();
+		Map<Character, List<Character>> map = g.getMap();
+		for(Map.Entry<Character, List<Character>> entry : map.entrySet()){
+			if(!visited.contains(entry.getKey())){
+				topoUtil(stack, visited, map, entry.getKey());
+			}
+		}
+		return stack;
+	}
+	
+	private void topoUtil(Stack<Character> stack, Set<Character> visited, Map<Character, List<Character>> map, char start){
+		
+		visited.add(start);
+		if(map.get(start)!= null){
+			
+			Iterator<Character> it = map.get(start).iterator();
+			while(it.hasNext()){
+				char temp = it.next();
+				if(!visited.contains(temp)){
+					topoUtil(stack, visited, map, temp);
+				}
+			}
+		}
+		stack.push(start);
+	}
 	public static void main(String[] args){
 
 		Graph_R1 g = new Graph_R1(6);

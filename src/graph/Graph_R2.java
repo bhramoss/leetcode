@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+//For Strings; Map representation
 public class Graph_R2 {
 
 	public Map<String, List<String>> map;

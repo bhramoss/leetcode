@@ -69,7 +69,41 @@ public class DetectCycle {
 		currentStack.remove(start);
 		return false;
 	}
-	
+
+	/*
+	 * 
+	 */
+	public boolean detectCycle(Graph_R3 g){
+		
+		Set<Character> visited = new HashSet<Character>();
+		Set<Character> currentStack = new HashSet<Character>();
+		Map<Character, List<Character>> map = g.getMap();
+		for(Map.Entry<Character, List<Character>> entry : map.entrySet()){
+			if(detectCycleUtil(map, visited, currentStack, entry.getKey())){
+				return true;
+			}
+		}
+		return false;
+	}
+	private boolean detectCycleUtil(Map<Character, List<Character>> map, Set<Character> visited, Set<Character> currentStack, char start){
+		
+		visited.add(start);
+		currentStack.add(start);
+		if(map.get(start) != null){
+			Iterator<Character> it = map.get(start).iterator();
+			while(it.hasNext()){
+				char temp = it.next();
+				if(!visited.contains(temp) && detectCycleUtil(map, visited, currentStack, temp)){
+					return true;
+				}else if(currentStack.contains(temp)){
+					return true;
+				}
+			}			
+		}
+		currentStack.remove(start);
+		return false;
+	}
+
 	public static void main(String[] args){
 		Graph_R1 g1 = new Graph_R1(4);
 		g1.addEdge(0, 1);
