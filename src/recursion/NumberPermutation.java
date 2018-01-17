@@ -62,7 +62,7 @@ public class NumberPermutation {
 	public static void main(String[] args){
 		NumberPermutation obj = new NumberPermutation();
 		
-		int[] array = {1,2};
+		int[] array = {1,2,};
 		obj.permute(array).forEach(s->{System.out.println(s);});
 		
 	}

@@ -1,33 +1,34 @@
-package dynamicprogramming;
+package google;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class WordBreak {
-
+class WordBreak {
     public boolean wordBreak(String s, List<String> wordDict) {
         
-        boolean [] dp = new boolean[s.length()+1];
+        boolean[] dp = new boolean[s.length()+1];
+        
         dp[0] = true;
         
         for(int i = 1; i <= s.length(); i++){
             for(int j = 0; j < i; j++){
-            	System.out.println(s.substring(j,i));
-                if(wordDict.contains(s.substring(j,i)) && dp[j]){
+                String temp = s.substring(j,i);
+                if(wordDict.contains(temp) && dp[j]){
                     dp[i] = true;
-                    break;
                 }
             }
         }
         return dp[s.length()];
     }
-	
+    
     public static void main(String[] args){
+    	
     	WordBreak obj = new WordBreak();
-    	String s = "carscar";
-    	List<String> wordDict = new ArrayList<>();
-    	wordDict.add("car");
-    	wordDict.add("cars");
-    	System.out.println(obj.wordBreak(s, wordDict));
+    	List<String> list= new ArrayList<String>();
+    	list.add("leet");
+    	list.add("code");
+    	System.out.println(obj.wordBreak("leetcode", list));
+    	
     }
+    
 }

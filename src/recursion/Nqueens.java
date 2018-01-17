@@ -93,7 +93,7 @@ public class Nqueens {
 
 		Nqueens obj = new Nqueens();
 
-		List<List<String>> result = (obj.solveNQueens(2));
+		List<List<String>> result = (obj.solveNQueens(4));
 		for(List<String> list : result){
 			System.out.println(list);
 		}

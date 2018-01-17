@@ -1,6 +1,8 @@
 package trie;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -8,6 +10,7 @@ public class TrieNode {
 	Map<Character, TrieNode> map;
 	boolean isEnd;
 	String word;
+	List<String> wordList;	
 
 	public String getWord() {
 		return word;
@@ -19,6 +22,7 @@ public class TrieNode {
 
 	public TrieNode() {
 		this.map = new HashMap<>();
+		this.wordList = new ArrayList<String>();
 		this.isEnd = false;
 	}
 

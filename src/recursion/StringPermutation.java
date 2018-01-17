@@ -63,7 +63,7 @@ public class StringPermutation {
 	public static void main(String[] args){
 		StringPermutation obj = new StringPermutation();
 		
-		obj.permute("abc").forEach(s->{System.out.println(s);});
+		obj.permute("aabc").forEach(s->{System.out.println(s);});
 		
 	}
 }

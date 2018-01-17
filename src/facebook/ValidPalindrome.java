@@ -5,6 +5,8 @@ public class ValidPalindrome {
 	public boolean isPalindrome(String s){
 
 		String original = s.replaceAll("[^\\w]", "").toLowerCase();
+		//DOUBT: what does \\w really mean ?
+		System.out.println(original);
 		String reverse = new StringBuilder(original).reverse().toString();
 		if(original.equals(reverse)){
 			return true;

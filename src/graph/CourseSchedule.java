@@ -46,7 +46,7 @@ public class CourseSchedule {
 	 
 	 public static void main(String[] args){
 		 CourseSchedule obj = new CourseSchedule();
-		 int [][] prerequisites = {{1,0},{3,0}};
-		 System.out.println(obj.canFinish(4, prerequisites));
+		 int [][] prerequisites = {{1,0},{3,0}, {1,2},{1,4}};
+		 System.out.println(obj.canFinish(5, prerequisites));
 	 }
 }

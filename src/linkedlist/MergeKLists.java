@@ -1,5 +1,6 @@
 package linkedlist;
 
+import java.util.Comparator;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
@@ -8,6 +9,15 @@ public class MergeKLists {
     public ListNode mergeKLists(ListNode[] lists) {
         
         Queue<Integer> minHeap = new PriorityQueue<Integer>();
+        
+//        Queue<ListNode> temp_ = new PriorityQueue<ListNode>(new Comparator<ListNode>() {
+//
+//			@Override
+//			public int compare(ListNode o1, ListNode o2) {
+//				// TODO Auto-generated method stub
+//				return 0;
+//			}
+//		});
 
         for(int i = 0; i < lists.length; i++){
             
